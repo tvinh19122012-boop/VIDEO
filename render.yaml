@@ -1,0 +1,13 @@
+# Render Blueprint: bấm "New > Blueprint" trên Render và chọn repo này là xong
+services:
+  - type: web
+    name: video-text-web
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: MAX_UPLOAD_MB
+        value: "250"
+      - key: FILE_TTL
+        value: "10800"
